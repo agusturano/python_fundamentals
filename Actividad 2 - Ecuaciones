@@ -1,0 +1,20 @@
+'Ecuación 1: "El doble de mi edad tiene 24 años, ¿cuántos años tengo?"'
+x = 24/2
+x = int(x)
+print("Resultado 1: ", x)
+
+'Ecuación 2: "A un tercio de la edad de mi hermana le disminuyo 15 años para tener la misma edad que yo. Yo tengo 6 años. ¿Qué edad tiene ella?"'
+'Defino x = mi edad;   y = La edad de mi hermana'
+x = 6
+'Reescribo la consigna en forma de ecuación: y/3 - 15 = x'
+y = (y + 15)*3
+y = int(y)
+print("Resultado 2: ", y)
+
+'Ejercicio 3: Utilizando estructuras condicionales (if, else), compara las edades representadas por las variables x y y para determinar quién es mayor.'
+if x < y:
+  print("Yo soy menor que mi hermana")
+elif x==y:
+  print("Mi hermana y yo tenemos la misma edad")
+else:
+  print("Yo soy mayor que mi hermana")
