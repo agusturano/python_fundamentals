@@ -1,0 +1,24 @@
+import numpy as np
+
+ventas_mensuales = np.array([
+    [1200, 1500, 800, 2500],
+    [1800, 1600, 900, 2800],
+    [1500, 1400, 950, 2600],
+    [1300, 1700, 850, 2700],
+    [2000, 1800, 950, 2900],
+    [1700, 1600, 900, 2700],
+    [1400, 1300, 850, 2500],
+    [1600, 1400, 1000, 2600],
+    [1800, 1700, 950, 2900],
+    [1900, 1500, 850, 2800],
+    [1700, 1600, 900, 2600],
+    [2100, 1800, 1000, 3000] ])
+
+print(ventas_mensuales)
+
+total_por_producto = np.sum(ventas_mensuales, axis=0)
+print("El total por producto es: ", total_por_producto)
+
+'Actividad Extra: calcular la suma de ventas por mes (sumar columnas en vez de filas)'
+total_por_día = np.sum(ventas_mensuales, axis=1)
+print("El total por mes es: ", total_por_día)
