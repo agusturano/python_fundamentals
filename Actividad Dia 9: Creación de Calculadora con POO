@@ -1,1 +1,29 @@
+'Actividad en clase'
+class Calculadora:
+  #Inicializamos los valores a trabajar
+  def __init__(self, valor_1, valor_2):
+    self.valor_1 = valor_1
+    self.valor_2 = valor_2
 
+  #Definimos el método para sumar
+  def suma(self):
+    return self.valor_1 + self.valor_2
+  def resta(self):
+    return self.valor_1 - self.valor_2
+  def multiplicacion(self):
+    return self.valor_1 * self.valor_2
+  def division(self):
+    if self.valor_2 != 0:
+      return self.valor_1 / self.valor_2
+    else:
+      return "El resultado de esta división es indefinido"
+
+print("Ingresa los numeros a evaluar")
+valor_1 = int(input("Ingresa el primer valor: "))
+valor_2 = int(input("Ingresa el segundo valor: "))
+
+calc = Calculadora(valor_1, valor_2)
+print("La suma de los valores es: ", calc.suma())
+print("La resta de los valores es: ", calc.resta())
+print("La multiplicacion de los valores es: ", calc.multiplicacion())
+print("La division de los valores es: ", calc.division())
