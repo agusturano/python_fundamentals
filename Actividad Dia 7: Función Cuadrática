@@ -1,1 +1,18 @@
+'''
+Crea una función llamada "cuadratica" utilizando el comando "def" en la cual recibas como argumentos los parámetros reales de una función cuadrática: a, b y c.
+Dentro de la función, calcula los valores de x1 y x2 utilizando la fórmula cuadrática:
+x = (-b +/- (b^2 - 4ac)^0.5) / (2a)
+Considera los casos especiales en los que el discriminante (b² - 4ac) es negativo. Si es negativo, imprime un mensaje indicando que la respuesta cuenta con un valor imaginario.
+'''
 
+def cuadratica(a, b, c):
+  discriminante = b**2 - 4*a*c
+  if discriminante < 0:
+    return "La respuesta cuenta con un valor imaginario"
+  else:
+    x1 = float((-b + (b**2 - 4*a*c)**0.5) / (2*a))
+    x2 = float((-b - (b**2 - 4*a*c)**0.5) / (2*a))
+    return x1, x2
+
+raices = cuadratica(1, 4, 4)
+print("Las raices son: ", raices)
