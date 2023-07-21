@@ -1,1 +1,23 @@
+'''
+Parte 1
+1.- Crea un diccionario en donde definas al menos 5 personas con un número cada uno.
+2.- Luego utilizando un bucle for imprime los valores del diccionario (nombre de la persona y número que dijo)
+'''
 
+dicc = { "Agus" : 5, "Cata" : 4,  "Mica" : 3, "Benja" : 2, "Jero" : 1}
+for i in dicc:
+			nombre = i
+			print(f"Nombre: {nombre}")
+			numero = dicc[i]
+			print(f"Numero: {numero}")
+   
+'''
+Parte 2
+1.- Imprime dos mensajes, mostrando el número más grande, y el número más pequeño del diccionario. (Sin el nombre del socio, sólo el número)
+'''
+
+minimo = min(dicc.values())
+maximo = max(dicc.values())
+
+print(f"El valor más chico de la lista es: {minimo}")
+print(f"El valor más grande de la lista es: {maximo}")
