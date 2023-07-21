@@ -1,0 +1,52 @@
+''' Parte 1
+1) Crear un script en python que permita al usuario ingresar los montos de las compras de un cliente, terminando el ingreso de datos cuando el usuario ingresa el valor 0. (No se sabe cuántos valores ingresará el usuario).
+2) En caso de ingresar una cantidad negativa, el registro no debe procesarse y se deberá solicitar que ingrese una nueva cantidad.
+3) Al finalizar, generar un reporte con el total a pagar considerando lo siguiente: Si el total supera los $1000, se debe aplicar un 10% de descuento.'''
+
+total = 0
+
+while True:
+  monto = float(input("Ingrese monto de compra: "))
+
+  if monto == 0:
+    break;
+
+  if monto < 0:
+    print("El valor ingresdo no es válido ingrese un monto positivo")
+    continue;
+
+  total += monto
+
+  if total > 1000:
+    total *=0.9
+
+  print("Total a pagar: ", total)
+
+'''Comentario: yo creo que esta parte no funciona del todo bien, ya que si luego de aplicar el 10% de descuento la primera vez que se superan los 1000$,
+sigo agregando ventas y vuelvo a superar los 1000$ de nuevo se aplicará sobre el monto completo el descuento (dando más descuento que el esperado).'''
+
+''' Parte 2
+1) Crear un script en python que permita al usuario ingresar el tiempo dentro en un estacionamiento, terminando el ingreso de datos cuando el usuario ingresa el valor 0.
+2) En caso de ingresar una cantidad negativa, el registro no debe procesarse y se deberá solicitar que ingrese una nueva cantidad.
+3) Al finalizar, generar un reporte con el total a pagar considerando lo siguiente:
+Hay una tarifa fija durante la primera hora (60 minutos) de $25. Por cada hora (60 minutos) adicional se cobran $15 extra.
+SI el monto del tiempo total supera las 8 horas, se aplica una tarifa de $200 extra. '''
+
+mins = 0
+sueldo = 0
+base = 0
+extra = 0
+
+while True:
+  mins = int(input("Ingrese el tiempo trabajado en minutos: "))
+  if mins == 0:
+    print("No trabajó, su sueldo fue de: ", sueldo," $.")
+    break;
+  if mins < 0:
+    print("Ingreso no válido, el número debe ser positivo")
+  if mins > 0:
+    base = 200 + 15*(mins-60)/60
+  if mins >= 8*60:
+    extra = 200
+  sueldo = sueldo + base + extra
+  print("Su sueldo fue de: ", sueldo," $.")
