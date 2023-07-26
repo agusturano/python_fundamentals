@@ -1,0 +1,49 @@
+'''
+Parte 1
+
+1- Importar la librería de pandas en tu script de Python.
+2- Utiliza pandas para leer el archivo CSV proporcionado y asignarlo a una variable. Por ejemplo, podríamos llamar a esta variable datos_atletas.
+3- Filtrar los datos para incluir solo a los atletas que hayan recibido una medalla (oro, plata o bronce). Puedes hacer esto usando la función .dropna() en la columna de las medallas, o filtra usando .notnull()
+4- Para encontrar al atleta más veterano que ha recibido medalla, puedes usar la función .idxmax() en la columna 'Age' y luego usar este índice para localizar los datos completos del atleta.
+5- Para encontrar al atleta más joven que ha recibido una medalla de oro, primero filtra los datos para incluir solo a los atletas que hayan recibido una medalla de oro. Luego, usa el mismo método que en el paso 4 para encontrar al atleta más joven.
+6- Para encontrar al atleta más condecorado de la historia, puedes utilizar la función .value_counts() en la columna 'Name' para contar cuántas veces aparece cada nombre (lo que indica cuántas medallas ha ganado).
+   Luego, puedes utilizar la función .idxmax() para encontrar el nombre del atleta que aparece más veces.
+7- Finalmente, extrae todos los registros de este atleta y crea un nuevo CSV con su información usando la función .to_csv().
+'''
+
+import pandas as pd
+datos = pd.read_csv('athlete_events.csv')
+print("### Vista Previa Datos ###")
+print(datos.head())
+
+medallistas = datos[datos.Medal.notnull()]
+''' medallistas = datos[datos.Medal.dropna()] --> No funciona'''
+print("### Vista Previa Medallistas ###")
+print(medallistas.head())
+
+index = medallistas["Age"].idxmax()
+print(datos.iloc[index])
+'''Por algun motivo no funciona si pongo medallistas.iloc[index]'''
+
+oros = datos[datos.Medal == "Gold"]
+print("### Vista Previa Medallas de Oro ###")
+print(oros.head())
+index = oros["Age"].idxmin()
+print(datos.iloc[index])
+
+ganador = medallistas["Name"].value_counts().idxmax()
+print(ganador)
+
+phelps = datos[datos["Name"] == ganador]
+phelps.to_csv("phelps.csv")
+
+'''
+#EXTRA -- DUDA: como obtengo la cantidad de medallas que ganó?
+ganadores = medallistas["Name"].value_counts()
+print(type(ganadores)) 
+  #Esto me dice que es tipo Series --> Lo tengo que pasar a DF
+ganadores_df = pd.DataFrame(ganadores, columns=['Cantidad'])
+cantidad = ganadores_df['Michael Fred Phelps, II']
+  #Esto me tira error
+print(ganadores_df)
+'''
