@@ -44,6 +44,6 @@ print(type(ganadores))
   #Esto me dice que es tipo Series --> Lo tengo que pasar a DF
 ganadores_df = pd.DataFrame(ganadores, columns=['Cantidad'])
 cantidad = ganadores_df['Michael Fred Phelps, II']
-  #Esto me tira error
+  #Eso me tira error
 print(ganadores_df)
 '''
