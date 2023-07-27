@@ -1,0 +1,31 @@
+'''
+Parte 1
+1.-Importa las librerías necesarias (pandas y matplotlib).
+2.- Lee el archivo CSV y filtra los datos para incluir solo a los atletas que hayan recibido una medalla.
+3.- Agrupa los datos por país ('Team') y cuenta el número de medallas ganadas por cada país .value_counts(). Luego, selecciona los 10 países con más medallas .head(10).}
+Crea una gráfica de barras con estos datos, asegúrate de añadir etiquetas a los ejes y un título para que la gráfica sea clara y legible.
+  Ejemplo de gráfica:  medallas_por_pais.plot(kind='bar', color='skyblue')
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+datos = pd.read_csv('athlete_events-1.csv')
+medallistas = datos[datos.Medal.notnull()]
+
+medallas_por_pais = medallistas["Team"].value_counts()
+medallas_por_pais = medallas_por_pais.head(10)
+
+medallas_por_pais.plot(kind="bar", color="skyblue")
+plt.show()
+
+'''
+Parte 2
+1.- A continuación, haz otro filtro def los datos para incluir sólo el año más reciente presente en los datos ['Year'].max() y agrupa los datos por país.
+Luego, genera una gráfica de pastel que represente el número de medallas ganadas por cada país.
+   Ejemplo de gráfica:  medallas_ultimo_año.plot(kind='pie')
+'''
+
+ultimo_año = medallistas["Year"].max()
+medallas_ult_a = medallistas[medallistas["Year"]== ultimo_año]["Team"].value_counts()
+medallas_ult_a.head(10).plot(kind="pie")
+plt.show()
